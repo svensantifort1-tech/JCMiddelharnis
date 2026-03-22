@@ -3,296 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Judoclub Middelharnis | Judo met Plezier</title>
+    <title>Judoclub Middelharnis | Premium Judo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- Color Palette & Variables --- */
+        /* --- High-End Color Palette & Variables --- */
         :root {
-            --tatami-navy: #1A2B4C;
-            --action-red: #D32F2F;
-            --judogi-white: #FFFFFF;
-            --matte-grey: #F4F5F7;
-            --accent-blue: #3B82F6;
-            --text-dark: #333333;
+            --premium-navy: #0f172a; 
+            --premium-crimson: #991b1b; 
+            --bg-light: #f8fafc; 
+            --pure-white: #ffffff;
+            --text-main: #334155; 
+            --text-light: #94a3b8;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* --- Global Styles --- */
+        /* --- Global Reset & Typography --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); background-color: var(--judogi-white); line-height: 1.6; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--tatami-navy); text-transform: uppercase; margin-bottom: 15px; }
-        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text-main); 
+            background-color: var(--bg-light); 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3, h4 { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--premium-navy); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+        }
+        
+        h2 { font-size: 2.2rem; margin-bottom: 1rem; text-align: center; }
+        h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        
+        p { margin-bottom: 1.5rem; }
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
         ul { list-style: none; }
-        section { padding: 80px 5%; max-width: 1200px; margin: auto; }
-        .bg-grey { background-color: var(--matte-grey); }
-
-        /* --- Buttons --- */
-        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; font-weight: bold; cursor: pointer; border: none; transition: transform 0.2s, background-color 0.3s; text-align: center; }
-        .btn-red { background-color: var(--action-red); color: var(--judogi-white); }
-        .btn-red:hover { background-color: #b71c1c; transform: translateY(-2px); }
-        .btn-blue { background-color: var(--accent-blue); color: var(--judogi-white); }
-        .btn-blue:hover { background-color: #2563eb; transform: translateY(-2px); }
-        .btn-outline { border: 2px solid var(--tatami-navy); color: var(--tatami-navy); background: transparent; }
-
-        /* --- Navigation --- */
-        nav { background-color: var(--tatami-navy); color: var(--judogi-white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--judogi-white); }
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a:hover { color: var(--accent-blue); }
-        .member-portal { background-color: var(--accent-blue); padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; }
-
-        /* --- Hero Section --- */
-        .hero { background: linear-gradient(rgba(26, 43, 76, 0.7), rgba(26, 43, 76, 0.7)), url('https://images.unsplash.com/photo-1564882510255-7e0e29b4fb81?auto=format&fit=crop&w=1920&q=80') center/cover; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--judogi-white); }
-        .hero h1 { color: var(--judogi-white); font-size: 3.5rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; font-weight: 500; }
-
-        /* --- Grid Layouts --- */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
-        /* --- Cards --- */
-        .card { background: var(--judogi-white); padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 5px solid var(--accent-blue); }
-        .card h3 { display: flex; align-items: center; gap: 10px; font-size: 1.2rem;}
-        .card hr { border: none; height: 1px; background: #eee; margin: 15px 0; }
+        /* Layout Utility */
+        section { padding: 100px 5%; max-width: 1200px; margin: auto; }
+        .section-subtitle { text-align: center; max-width: 600px; margin: 0 auto 50px auto; color: var(--text-light); font-size: 1.1rem; }
+        .bg-white { background-color: var(--pure-white); }
         
-        /* --- Webshop Snippet --- */
-        .product-card { text-align: center; background: var(--judogi-white); border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .product-card img { max-width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; }
+        /* --- Premium Buttons --- */
+        .btn { 
+            display: inline-block; 
+            padding: 14px 32px; 
+            border-radius: 4px; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer; 
+            border: none; 
+            transition: var(--transition-smooth); 
+            text-align: center; 
+        }
+        .btn-primary { background-color: var(--premium-crimson); color: var(--pure-white); }
+        .btn-primary:hover { background-color: #7f1d1d; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(153, 27, 27, 0.2); }
+        .btn-secondary { background-color: var(--premium-navy); color: var(--pure-white); }
+        .btn-secondary:hover { background-color: #1e293b; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2); }
+
+        /* --- Glassmorphism Navigation --- */
+        nav { 
+            background: rgba(15, 23, 42, 0.95); 
+            backdrop-filter: blur(10px);
+            color: var(--pure-white); 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--premium-crimson); }
+        .member-portal { border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px; border-radius: 4px; }
+        .member-portal:hover { background: var(--pure-white); color: var(--premium-navy); }
+
+        /* --- Cinematic Hero Section --- */
+        .hero { 
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1564882510255-7e0e29b4fb81?auto=format&fit=crop&w=1920&q=80') center/cover; 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+        }
+        .hero-content { max-width: 800px; padding: 0 20px; }
+        .hero h1 { color: var(--pure-white); font-size: 4rem; letter-spacing: 4px; margin-bottom: 20px; }
+        .hero p { color: #cbd5e1; font-size: 1.2rem; font-weight: 300; margin-bottom: 40px; }
+
+        /* --- Grids & Cards --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 60px; }
         
-        /* --- FAQ Accordion --- */
-        .faq-item { background: var(--judogi-white); margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden; }
-        .faq-question { padding: 15px 20px; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; color: var(--tatami-navy); background-color: var(--matte-grey);}
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-answer { padding: 15px 20px; max-height: 200px; }
+        .card { 
+            background: var(--pure-white); 
+            padding: 50px 40px; 
+            border-radius: 8px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03); 
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(0,0,0,0.06); }
+        .card i { font-size: 2rem; color: var(--premium-crimson); margin-bottom: 20px; }
 
-        /* --- Form --- */
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--tatami-navy); }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Roboto', sans-serif; }
-        .security-badge { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #4caf50; margin-bottom: 15px; }
+        /* --- Shopify CTA Banner --- */
+        .shopify-cta {
+            background: var(--premium-navy);
+            color: var(--pure-white);
+            border-radius: 8px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+        }
+        .shopify-cta h3 { color: var(--pure-white); font-size: 1.8rem; margin-bottom: 15px; }
 
-        /* --- Footer --- */
-        footer { background-color: var(--tatami-navy); color: var(--judogi-white); padding: 50px 5%; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-        .footer-grid h4 { color: var(--judogi-white); }
-        .social-icons a { font-size: 1.5rem; margin-right: 15px; color: var(--accent-blue); }
-        .social-icons a:hover { color: var(--judogi-white); }
-        .footer-bottom { text-align: center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; }
+        /* --- Minimalist Form --- */
+        .form-container { background: var(--pure-white); padding: 50px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.04); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--premium-navy); margin-bottom: 10px; }
+        .form-group input, .form-group textarea { 
+            width: 100%; padding: 15px; border: 1px solid #e2e8f0; border-radius: 4px; 
+            font-family: 'Inter', sans-serif; background: #f8fafc; transition: var(--transition-smooth);
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--premium-navy); background: var(--pure-white); }
+        .security-badge { font-size: 0.75rem; color: #64748b; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+
+        /* --- Refined Footer --- */
+        footer { background-color: var(--premium-navy); color: var(--pure-white); padding: 80px 5% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
+        .footer-grid h4 { color: var(--pure-white); margin-bottom: 20px; font-size: 1rem; }
+        .footer-grid p { color: #94a3b8; }
+        .social-icons { display: flex; gap: 20px; }
+        .social-icons a { 
+            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; 
+            background: rgba(255,255,255,0.05); color: var(--pure-white); transition: var(--transition-smooth); 
+        }
+        .social-icons a:hover { background: var(--premium-crimson); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; color: #64748b; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* --- PREMIUM SCROLL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo-text"><i class="fa-solid fa-yin-yang"></i> JC MIDDELHARNIS</div>
+        <div class="logo-text">JC MIDDELHARNIS</div>
         <div class="nav-links">
             <a href="#over-ons">Over ons</a>
             <a href="#locaties">Locaties</a>
-            <a href="#webshop">Webshop</a>
-            <a href="#faq">FAQ</a>
+            <a href="shop.html">Webshop</a>
             <a href="#contact">Contact</a>
-            <a href="#" class="member-portal"><i class="fa-solid fa-lock"></i> Ledenportaal</a>
+            <a href="#" class="member-portal">Ledenportaal</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div>
+        <div class="hero-content reveal active">
             <h1>Judo met plezier</h1>
-            <p>Een gezellige en open vereniging voor recreatief en goed judo op Goeree-Overflakkee.</p>
-            <a href="#contact" class="btn btn-red">Proefles Aanvragen</a>
+            <p>Een vereniging op Goeree-Overflakkee waar techniek, respect en recreatie samenkomen.</p>
+            <a href="#contact" class="btn btn-primary">Proefles Aanvragen</a>
         </div>
     </header>
 
     <section id="over-ons">
-        <h2>Over Judoclub Middelharnis</h2>
-        <p style="max-width: 800px; margin-bottom: 40px;">Judoclub Middelharnis is een gezellige en open vereniging. We staan voor recreatief en goed judo en streven ernaar om iedere judoka verder te helpen in hun fysieke en mentale ontwikkeling. Binnenkort lanceren we onze volledige nieuwe website, maar onze deuren staan altijd open!</p>
-        
-        <h3>Ontmoet het Team</h3>
-        <div class="grid-3">
-            <div class="card" style="border-top-color: var(--tatami-navy); text-align: center;">
-                <img src="https://ui-avatars.com/api/?name=Sensei+Jan&background=1A2B4C&color=fff&size=100&rounded=true" alt="Sensei" style="margin-bottom: 15px;">
-                <h4>Hoofdtrainer</h4>
-                <p>Met jarenlange ervaring zorgt ons team ervoor dat veiligheid en plezier altijd voorop staan tijdens de lessen.</p>
-            </div>
-            <div class="card" style="border-top-color: var(--tatami-navy); text-align: center;">
-                <i class="fa-solid fa-images fa-4x" style="color: var(--matte-grey); margin-bottom: 15px;"></i>
-                <h4>Foto & Video Galerij</h4>
-                <p>Bekijk de actie! Ontdek foto's van onze laatste bandenexamens, toernooien en wekelijkse lessen in het portaal.</p>
-                <a href="#" class="btn btn-blue" style="margin-top: 10px; font-size: 0.8rem;">Bekijk Galerij</a>
-            </div>
-            <div class="card" style="border-top-color: var(--tatami-navy); text-align: center;">
-                <i class="fa-regular fa-calendar-days fa-4x" style="color: var(--matte-grey); margin-bottom: 15px;"></i>
-                <h4>Nieuws & Agenda</h4>
-                <p>Blijf op de hoogte van vakantiesluitingen en aankomende evenementen over onze drie locaties.</p>
-                <a href="#" class="btn btn-blue" style="margin-top: 10px; font-size: 0.8rem;">Bekijk Agenda</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="locaties" class="bg-grey">
-        <h2 style="text-align: center;">Onze Locaties & Tijden</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Bekijk de specifieke pagina's voor meer informatie over de dojo's in Sommelsdijk, Dirksland en Oude-Tonge.</p>
+        <h2 class="reveal">De Vereniging</h2>
+        <p class="section-subtitle reveal">Judoclub Middelharnis is een gezellige en open vereniging. We staan voor recreatief en goed judo[cite: 38].</p>
         
         <div class="grid-3">
-            <div class="card">
-                <h3><i class="fa-solid fa-location-dot" style="color: var(--action-red);"></i> De Staver</h3>
-                <p><strong>Maandag</strong><br>Olympiaweg 32<br>3245 DL Sommelsdijk</p>
-                <hr>
-                <ul>
-                    <li><strong>4 t/m 11 jaar:</strong> 17:00 - 18:00</li>
-                    <li><strong>12 t/m 17 jaar:</strong> 18:00 - 19:00</li>
-                    <li><strong>Senioren:</strong> 19:00 - 20:00</li>
-                </ul>
-                <a href="#" style="color: var(--accent-blue); display: block; margin-top: 15px; font-weight: bold;">Meer over Sommelsdijk &rarr;</a>
+            <div class="card reveal">
+                <i class="fa-solid fa-medal"></i>
+                <h3>Kwaliteit & Techniek</h3>
+                <p>We streven ernaar om iedere judoka verder te helpen in hun ontwikkeling[cite: 39], begeleid door ervaren trainers.</p>
             </div>
-
-            <div class="card">
-                <h3><i class="fa-solid fa-location-dot" style="color: var(--action-red);"></i> De Gooye</h3>
-                <p><strong>Donderdag</strong><br>Hondsgalgweg 1<br>3247 XW Dirksland</p>
-                <hr>
-                <ul>
-                    <li><strong>4 t/m 9 jaar:</strong> 16:00 - 17:00</li>
-                    <li><strong>10 t/m 16 jaar:</strong> 17:00 - 18:00</li>
-                    <li style="color: transparent;">-</li>
-                </ul>
-                <a href="#" style="color: var(--accent-blue); display: block; margin-top: 15px; font-weight: bold;">Meer over Dirksland &rarr;</a>
+            <div class="card reveal delay-1">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h3>Mediacentrum</h3>
+                <p>Bekijk exclusieve beelden van onze bandenexamens en toernooien via ons afgeschermde ledenportaal.</p>
             </div>
-
-            <div class="card">
-                <h3><i class="fa-solid fa-location-dot" style="color: var(--action-red);"></i> De Grutterswei</h3>
-                <p><strong>Vrijdag</strong><br>Willemstraat 14<br>3255 BS Oude Tonge</p>
-                <hr>
-                <ul>
-                    <li><strong>4 t/m 10 jaar:</strong> 17:00 - 18:00</li>
-                    <li><strong>11 t/m 17 jaar:</strong> 18:00 - 19:00</li>
-                    <li><strong>Senioren:</strong> 19:00 - 20:00</li>
-                </ul>
-                <a href="#" style="color: var(--accent-blue); display: block; margin-top: 15px; font-weight: bold;">Meer over Oude Tonge &rarr;</a>
+            <div class="card reveal delay-2">
+                <i class="fa-regular fa-calendar-check"></i>
+                <h3>Actuele Agenda</h3>
+                <p>Blijf altijd op de hoogte van examentijden, vakanties en regionale wedstrijden.</p>
             </div>
         </div>
     </section>
 
-    <section id="prijzen">
-        <h2 style="text-align: center;">Tarieven & Lidmaatschap</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Transparante prijzen zonder verrassingen. Na een gratis proefles kun je eenvoudig lid worden via ons portaal.</p>
-        <div class="grid-3" style="justify-content: center; max-width: 800px; margin: auto;">
-            <div class="card" style="text-align: center;">
-                <h3>Jeugd (t/m 17 jaar)</h3>
-                <p style="font-size: 2rem; font-weight: bold; color: var(--tatami-navy);">€XX <span style="font-size: 1rem; font-weight: normal;">/ mnd</span></p>
-                <p style="font-size: 0.9rem;">1x per week trainen<br>Toegang tot alle clubtoernooien</p>
-            </div>
-            <div class="card" style="text-align: center;">
-                <h3>Senioren (18+ jaar)</h3>
-                <p style="font-size: 2rem; font-weight: bold; color: var(--tatami-navy);">€XX <span style="font-size: 1rem; font-weight: normal;">/ mnd</span></p>
-                <p style="font-size: 0.9rem;">Intensieve trainingen<br>Toegang tot alle clubtoernooien</p>
+    <section id="locaties" class="bg-white" style="max-width: 100%; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;">
+        <div style="max-width: 1200px; margin: auto;">
+            <h2 class="reveal">Onze Dojo's</h2>
+            <p class="section-subtitle reveal">Professionele faciliteiten op drie locaties[cite: 16]. Bezoek onze lessen vrijblijvend[cite: 39].</p>
+            
+            <div class="grid-3">
+                <div class="card reveal">
+                    <h3>De Staver</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px;">Maandag [cite: 11]<br>Olympiaweg 32 [cite: 12]<br>3245 DL Sommelsdijk [cite: 13]</p>
+                    <ul style="border-top: 1px solid #f1f5f9; padding-top: 20px; font-size: 0.9rem;">
+                        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Jeugd (4 t/m 11)</span> <strong>17:00 - 18:00</strong></li>
+                        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Jeugd (12 t/m 17)</span> <strong>18:00 - 19:00</strong></li>
+                        <li style="display: flex; justify-content: space-between;"><span>Senioren</span> <strong>19:00 - 20:00</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card reveal delay-1">
+                    <h3>De Gooye</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px;">Donderdag [cite: 18]<br>Hondsgalgweg 1 [cite: 18]<br>3247 XW Dirksland [cite: 19]</p>
+                    <ul style="border-top: 1px solid #f1f5f9; padding-top: 20px; font-size: 0.9rem;">
+                        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Jeugd (4 t/m 9)</span> <strong>16:00 - 17:00</strong></li>
+                        <li style="display: flex; justify-content: space-between;"><span>Jeugd (10 t/m 16)</span> <strong>17:00 - 18:00</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card reveal delay-2">
+                    <h3>De Grutterswei</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px;">Vrijdag [cite: 22]<br>Willemstraat 14 [cite: 23]<br>3255 BS Oude Tonge [cite: 24]</p>
+                    <ul style="border-top: 1px solid #f1f5f9; padding-top: 20px; font-size: 0.9rem;">
+                        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Jeugd (4 t/m 10)</span> <strong>17:00 - 18:00</strong></li>
+                        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>Jeugd (11 t/m 17)</span> <strong>18:00 - 19:00</strong></li>
+                        <li style="display: flex; justify-content: space-between;"><span>Senioren</span> <strong>19:00 - 20:00</strong></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="webshop" class="bg-grey">
-        <h2 style="text-align: center;">Club Webshop</h2>
-        <p style="text-align: center; margin-bottom: 40px;">Koop hier eenvoudig je officiële clubkleding, judopakken (judogi's) en nieuwe banden.</p>
-        <div class="grid-3">
-            <div class="product-card">
-                <i class="fa-solid fa-shirt fa-5x" style="color: var(--tatami-navy); margin-bottom: 20px;"></i>
-                <h4>Basis Judopak (Jeugd)</h4>
-                <p>Perfect voor beginners. Incl. witte band.</p>
-                <p style="font-weight: bold; margin: 10px 0;">Vanaf €35,00</p>
-                <button class="btn btn-red" style="width: 100%;">Shop Nu</button>
-            </div>
-            <div class="product-card">
-                <i class="fa-solid fa-ribbon fa-5x" style="color: #FFD700; margin-bottom: 20px;"></i>
-                <h4>Judo Banden</h4>
-                <p>Alle kleuren beschikbaar voor je volgende examen.</p>
-                <p style="font-weight: bold; margin: 10px 0;">€8,50</p>
-                <button class="btn btn-red" style="width: 100%;">Shop Nu</button>
-            </div>
-            <div class="product-card">
-                <i class="fa-solid fa-bag-shopping fa-5x" style="color: var(--tatami-navy); margin-bottom: 20px;"></i>
-                <h4>JCM Sporttas</h4>
-                <p>Ruime tas met het Judoclub Middelharnis logo.</p>
-                <p style="font-weight: bold; margin: 10px 0;">€24,95</p>
-                <button class="btn btn-red" style="width: 100%;">Shop Nu</button>
-            </div>
+    <section id="webshop" class="reveal">
+        <div class="shopify-cta">
+            <h3>Officiële Clubshop</h3>
+            <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem;">
+                Bestel eenvoudig je officiële Judoclub Middelharnis uitrusting. Van premium judogi's tot clubkleding, veilig en snel via onze Shopify webwinkel.
+            </p>
+            <a href="shop.html" class="btn btn-primary" style="background-color: var(--pure-white); color: var(--premium-navy);">Bezoek de Webshop</a>
         </div>
     </section>
 
-    <section id="faq">
-        <h2 style="text-align: center;">Veelgestelde Vragen (FAQ)</h2>
-        <div style="max-width: 800px; margin: 30px auto;">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Wat moet ik aan tijdens mijn eerste proefles? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Voor een proefles is een lange joggingbroek en een stevig t-shirt met lange mouwen voldoende. Als je besluit lid te worden, kun je via onze webshop een officieel judopak aanschaffen.</p></div>
+    <section id="contact" class="bg-white" style="max-width: 100%; border-top: 1px solid #f1f5f9;">
+        <div class="grid-2" style="max-width: 1200px; margin: auto;">
+            <div class="reveal" style="padding-top: 20px;">
+                <h2 style="text-align: left;">Begin Jouw Reis</h2>
+                <p>Wil je ook beleven hoe leuk judo kan zijn? [cite: 8] Vraag een proefles aan [cite: 9] en ervaar de dynamiek van Judoclub Middelharnis zelf.</p>
+                
+                <div style="margin-top: 40px;">
+                    <h4 style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px;">Hoofdadres & Secretariaat</h4>
+                    <p style="font-weight: 500;">Magdalenadijk 7 [cite: 41]<br>3255 LK Oude-Tonge [cite: 42]</p>
+                    
+                    <h4 style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px; margin-top: 30px;">Digitale Correspondentie</h4>
+                    <p style="font-weight: 500;">judoclubmiddelharnis@gmail.com [cite: 42]</p>
+                </div>
             </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Mogen ouders komen kijken? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Ja! Tijdens de eerste proefles mogen ouders zeker aan de kant komen kijken. Daarna hebben we speciale kijklessen gepland in onze kalender.</p></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Hoe werken de bandenexamens? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Twee keer per jaar organiseren we bandenexamens (slippen en hele banden). De leraren beoordelen tijdens de lessen of een judoka klaar is voor het examen.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="bg-grey" style="padding-bottom: 80px;">
-        <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
-            <div>
-                <h2>Vraag een Proefles aan</h2>
-                <p>Wil je ook beleven hoe leuk judo kan zijn? Onze lessen zijn vrijblijvend te bezoeken. Vul het formulier in en we nemen snel contact op!</p>
-                <ul style="margin-top: 20px; line-height: 2;">
-                    <li><i class="fa-solid fa-envelope" style="color: var(--action-red); width: 25px;"></i> judoclubmiddelharnis@gmail.com</li>
-                    <li><i class="fa-solid fa-location-arrow" style="color: var(--action-red); width: 25px;"></i> Hoofdadres: Magdalenadijk 7, 3255 LK Oude-Tonge</li>
-                </ul>
-            </div>
-            <div style="background: var(--judogi-white); padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            
+            <div class="form-container reveal delay-1">
                 <form action="#" method="POST">
                     <div class="form-group">
-                        <label>Voor- en achternaam</label>
-                        <input type="text" placeholder="Jouw naam" required>
+                        <label>Voor- en achternaam [cite: 28]</label>
+                        <input type="text" placeholder="Naam" required>
                     </div>
                     <div class="form-group">
-                        <label>E-mailadres</label>
-                        <input type="email" placeholder="jouw@email.nl" required>
+                        <label>E-mail adres [cite: 30]</label>
+                        <input type="email" placeholder="E-mail" required>
                     </div>
                     <div class="form-group">
-                        <label>Telefoonnummer</label>
-                        <input type="tel" placeholder="06 12345678">
+                        <label>Telefoonnummer [cite: 32]</label>
+                        <input type="tel" placeholder="Telefoon">
                     </div>
                     <div class="form-group">
-                        <label>Bericht</label>
-                        <textarea rows="4" placeholder="Geef hier bijvoorbeeld de leeftijd aan of de voorkeurslocatie." required></textarea>
+                        <label>Bericht [cite: 34]</label>
+                        <textarea rows="4" placeholder="Uw toelichting..." required></textarea>
                     </div>
                     <div class="security-badge">
-                        <i class="fa-solid fa-shield-halved"></i> Dit formulier is beveiligd door reCAPTCHA V3. Geen spam, gegarandeerd.
+                        <i class="fa-solid fa-lock"></i> Beveiligd met enterprise-grade reCAPTCHA encryptie.
                     </div>
-                    <button type="submit" class="btn btn-red" style="width: 100%;">Verstuur Aanvraag</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Verstuur [cite: 35]</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
+        <div class="footer-grid reveal">
             <div>
-                <h4>Judoclub Middelharnis</h4>
-                <p>Judo met plezier. Een sport voor jong en oud, gericht op respect, techniek en gezelligheid.</p>
+                <h4>JUDOCLUB MIDDELHARNIS</h4>
+                <p style="max-width: 400px; font-size: 0.9rem;">Een vereniging gebouwd op discipline, respect en gemeenschap. Ontdek de kunst van het judo op Goeree-Overflakkee.</p>
             </div>
-            <div>
-                <h4>Handige Links</h4>
-                <ul style="line-height: 2;">
-                    <li><a href="#prijzen">Lidmaatschap</a></li>
-                    <li><a href="#webshop">Webshop</a></li>
-                    <li><a href="#faq">Veelgestelde Vragen</a></li>
-                    <li><a href="#">Privacybeleid</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Volg Ons</h4>
+            <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                <h4>CONNECT</h4>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61558234824233" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61558234824233" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/judoclubmiddelharnis/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
@@ -303,11 +321,29 @@
     </footer>
 
     <script>
-        // Simple script for the FAQ accordion behavior
-        function toggleFaq(element) {
-            const item = element.parentElement;
-            item.classList.toggle('active');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOptions = {
+                threshold: 0.15, 
+                rootMargin: "0px 0px -50px 0px" 
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
     </script>
 </body>
 </html>
