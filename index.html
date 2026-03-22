@@ -104,7 +104,8 @@
 
         /* --- Cinematic Hero Section --- */
         .hero { 
-            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.8)), url('https://images.unsplash.com/photo-1564882510255-7e0e29b4fb81?auto=format&fit=crop&w=1920&q=80') center/cover; 
+            /* Updated background to use the provided image file name */
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.8)), url('Gemini_Generated_Image_nmy2bjnmy2bjnmy2 (1).jpg') center/cover; 
             background-attachment: fixed; height: 100vh; 
             display: flex; align-items: center; justify-content: center; text-align: center; 
         }
@@ -167,10 +168,41 @@
             margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; 
             font-size: 0.85rem; color: #64748b; 
         }
+
+        /* --- Legal Links (Privacy & Terms) --- */
+        .legal-links { display: flex; gap: 20px; }
+        .legal-links a { color: #94a3b8; transition: var(--transition-smooth); cursor: pointer; }
+        .legal-links a:hover { color: var(--pure-white); }
         
         /* FYXO Footer Logo styling */
         .fyxo-container { display: flex; align-items: center; gap: 8px; font-size: 0.9rem;}
         .fyxo-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--pure-white); }
+
+        /* --- MODAL (Privacy & Terms) --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 25, 47, 0.8); backdrop-filter: blur(5px);
+            z-index: 2000; opacity: 0; visibility: hidden;
+            transition: all 0.4s ease; display: flex; justify-content: center; align-items: center;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .modal-content {
+            background: var(--pure-white); border-radius: 12px; width: 90%; max-width: 650px;
+            max-height: 85vh; overflow-y: auto; padding: 50px;
+            transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2); position: relative;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+        
+        .close-modal {
+            position: absolute; top: 25px; right: 25px; background: none; border: none;
+            font-size: 1.5rem; color: var(--text-light); cursor: pointer; transition: color 0.3s;
+        }
+        .close-modal:hover { color: var(--brand-red); }
+        .modal-content h3 { color: var(--brand-navy); margin-bottom: 20px; font-size: 1.5rem; }
+        .modal-content h4 { color: var(--brand-navy); margin-top: 25px; margin-bottom: 10px; font-size: 1rem; font-family: 'Inter', sans-serif; text-transform: none; font-weight: 600; letter-spacing: 0;}
+        .modal-content p { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; }
 
         /* --- MEDIA QUERIES (Responsiveness for all devices) --- */
         
@@ -187,6 +219,7 @@
             .grid-2 { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3.5rem; }
+            .legal-links { flex-direction: column; gap: 10px; text-align: center; }
         }
 
         /* Mobile */
@@ -199,7 +232,9 @@
             .grid-3, .grid-2 { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .social-icons { justify-content: center; }
-            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+            .legal-links { flex-direction: column; gap: 10px; }
+            .modal-content { padding: 30px 20px; }
         }
 
         /* --- Scroll Animations --- */
@@ -366,14 +401,53 @@
         <div class="footer-bottom">
             <div>&copy; 2026 Judoclub Middelharnis. Alle rechten voorbehouden.</div>
             
+            <div class="legal-links">
+                <a onclick="openModal('privacyModal')">Privacybeleid</a>
+                <a onclick="openModal('termsModal')">Algemene Voorwaarden</a>
+            </div>
+
             <div class="fyxo-container">
                 Made by <span class="fyxo-logo">FYXO</span>
             </div>
         </div>
     </footer>
 
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('privacyModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Privacybeleid</h3>
+            <p>Welkom bij Judoclub Middelharnis. Wij hechten veel waarde aan transparantie en de bescherming van jouw persoonsgegevens.</p>
+            
+            <h4>Gegevensverwerking</h4>
+            <p>Wij gebruiken de door jou verstrekte gegevens (via het contactformulier of inschrijving) uitsluitend voor het inplannen van proeflessen, de ledenadministratie, en de afhandeling van eventuele webshop bestellingen.</p>
+            
+            <h4>Beveiliging & Derden</h4>
+            <p>Jouw gegevens worden veilig opgeslagen en nooit verkocht of gedeeld met commerciële derde partijen zonder jouw uitdrukkelijke toestemming. Onze webshop betalingen worden veilig verwerkt via het versleutelde platform van Shopify.</p>
+            
+            <h4>Inzage en Verwijdering</h4>
+            <p>Als lid heb je te allen tijde het recht om jouw persoonsgegevens in te zien, te corrigeren of te laten verwijderen. Neem hiervoor contact met ons op via judoclubmiddelharnis@gmail.com.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="termsModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('termsModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Algemene Voorwaarden (Webshop)</h3>
+            <p>Deze voorwaarden zijn van toepassing op alle aankopen die via de officiële webshop van Judoclub Middelharnis worden gedaan.</p>
+
+            <h4>Bestellingen & Betaling</h4>
+            <p>Alle bestellingen worden verwerkt en financieel afgehandeld via ons veilige Shopify-systeem. Na een succesvolle betaling ontvang je direct een bevestiging per e-mail.</p>
+
+            <h4>Levering & Ophalen</h4>
+            <p>Omdat wij een lokale sportvereniging zijn, worden bestellingen <strong>niet thuisbezorgd</strong>. Je kunt je bestelde artikelen (zoals een judogi, band of tas) tijdens je eerstvolgende reguliere trainingstijd afhalen bij je dojo (De Staver, De Gooye of De Grutterswei). Toon hierbij je bestelbevestiging aan de trainer.</p>
+
+            <h4>Ruilen & Retourneren</h4>
+            <p>Artikelen kunnen binnen 14 dagen na ontvangst worden geretourneerd of geruild voor een andere maat, mits het artikel ongebruikt is, niet gewassen, en zich in de originele verpakking bevindt. Lever het artikel in bij de trainer om het retourproces in gang te zetten.</p>
+        </div>
+    </div>
+
     <script>
-        // Smooth Scroll Animations
+        // --- Smooth Scroll Animations ---
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
@@ -389,6 +463,25 @@
 
             reveals.forEach(reveal => revealOnScroll.observe(reveal));
         });
+
+        // --- Modal Control Logic ---
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevents background scrolling when modal is open
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restores scrolling
+        }
+
+        // Close modal if user clicks strictly on the dark background overlay
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
     </script>
 </body>
 </html>
