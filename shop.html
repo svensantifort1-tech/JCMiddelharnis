@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Collectie | Judoclub Middelharnis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- High-End Color Palette & Variables --- */
+        :root {
+            --premium-navy: #0f172a; 
+            --premium-crimson: #991b1b; 
+            --bg-light: #f8fafc; 
+            --pure-white: #ffffff;
+            --text-main: #334155; 
+            --text-light: #94a3b8;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- Global Reset & Typography --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--text-main); 
+            background-color: var(--bg-light); 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        h1, h2, h3, h4 { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--premium-navy); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+        }
+        
+        h2 { font-size: 2.2rem; margin-bottom: 1rem; text-align: center; }
+        p { margin-bottom: 1.5rem; }
+        a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        ul { list-style: none; }
+        
+        /* Layout Utility */
+        section { padding: 100px 5%; max-width: 1200px; margin: auto; }
+        .section-subtitle { text-align: center; max-width: 600px; margin: 0 auto 50px auto; color: var(--text-light); font-size: 1.1rem; }
+        
+        /* --- Glassmorphism Navigation --- */
+        nav { 
+            background: rgba(15, 23, 42, 0.95); 
+            backdrop-filter: blur(10px);
+            color: var(--pure-white); 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; 
+            width: 100%;
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--premium-crimson); }
+        .nav-links a.active { color: var(--premium-crimson); font-weight: 600; border-bottom: 2px solid var(--premium-crimson); padding-bottom: 4px; }
+        .member-portal { border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px; border-radius: 4px; }
+        .member-portal:hover { background: var(--pure-white); color: var(--premium-navy); }
+
+        /* --- Shop Hero Section --- */
+        .shop-hero { 
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1920&q=80') center/cover; 
+            height: 50vh; /* Shorter than homepage hero */
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            margin-top: 70px; /* Offset for fixed nav */
+        }
+        .shop-hero-content { max-width: 800px; padding: 0 20px; }
+        .shop-hero h1 { color: var(--pure-white); font-size: 3.5rem; letter-spacing: 4px; margin-bottom: 15px; }
+        .shop-hero p { color: #cbd5e1; font-size: 1.1rem; font-weight: 300; }
+
+        /* --- Shopify Container --- */
+        .shopify-container {
+            background: var(--pure-white);
+            border-radius: 8px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            min-height: 500px; /* Ensures page doesn't look empty while Shopify loads */
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        /* --- Refined Footer --- */
+        footer { background-color: var(--premium-navy); color: var(--pure-white); padding: 80px 5% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
+        .footer-grid h4 { color: var(--pure-white); margin-bottom: 20px; font-size: 1rem; }
+        .footer-grid p { color: #94a3b8; }
+        .social-icons { display: flex; gap: 20px; }
+        .social-icons a { 
+            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; 
+            background: rgba(255,255,255,0.05); color: var(--pure-white); transition: var(--transition-smooth); 
+        }
+        .social-icons a:hover { background: var(--premium-crimson); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; color: #64748b; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* --- PREMIUM SCROLL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-text">JC MIDDELHARNIS</div>
+        <div class="nav-links">
+            <a href="index.html#over-ons">Over ons</a>
+            <a href="index.html#locaties">Locaties</a>
+            <a href="shop.html" class="active">Webshop</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="#" class="member-portal">Ledenportaal</a>
+        </div>
+    </nav>
+
+    <header class="shop-hero">
+        <div class="shop-hero-content reveal active">
+            <h1>Club Collectie</h1>
+            <p>Officiële judogi's, banden en kleding van Judoclub Middelharnis.</p>
+        </div>
+    </header>
+
+    <section id="storefront">
+        <h2 class="reveal">Assortiment</h2>
+        <p class="section-subtitle reveal">Bestel eenvoudig online en haal je nieuwe gear op tijdens je volgende training in de dojo.</p>
+        
+        <div class="shopify-container reveal delay-1">
+            
+            <div id="product-component-placeholder" style="text-align: center; padding: 100px 20px; color: var(--text-light);">
+                <i class="fa-solid fa-store fa-3x" style="margin-bottom: 20px; color: #e2e8f0;"></i>
+                <p>Shopify Storefront Loading...</p>
+                </div>
+
+            </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid reveal">
+            <div>
+                <h4>JUDOCLUB MIDDELHARNIS</h4>
+                <p style="max-width: 400px; font-size: 0.9rem;">Een vereniging gebouwd op discipline, respect en gemeenschap. Ontdek de kunst van het judo op Goeree-Overflakkee.</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                <h4>CONNECT</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61558234824233" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/judoclubmiddelharnis/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Judoclub Middelharnis. Alle rechten voorbehouden.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOptions = {
+                threshold: 0.15, 
+                rootMargin: "0px 0px -50px 0px" 
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
