@@ -4,37 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Collectie | Judoclub Middelharnis</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="tied-black-belt.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="tied-black-belt.png?v=2">
+    <link rel="apple-touch-icon" href="tied-black-belt.png?v=2">
+    <link rel="shortcut icon" href="tied-black-belt.png?v=2">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- High-End Color Palette & Variables --- */
         :root {
-            --premium-navy: #0f172a; 
-            --premium-crimson: #991b1b; 
-            --bg-light: #f8fafc; 
+            --brand-navy: #0A192F; 
+            --brand-red: #D32F2F; 
+            --bg-offwhite: #F9FAFB; 
+            --bg-pattern: #f1f5f9;
             --pure-white: #ffffff;
             --text-main: #334155; 
-            --text-light: #94a3b8;
+            --text-light: #64748b;
             --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* --- Global Reset & Typography --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        
         body { 
             font-family: 'Inter', sans-serif; 
             color: var(--text-main); 
-            background-color: var(--bg-light); 
+            background-color: var(--bg-offwhite); 
             line-height: 1.7; 
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4 { 
             font-family: 'Montserrat', sans-serif; 
-            color: var(--premium-navy); 
+            color: var(--brand-navy); 
             text-transform: uppercase; 
             letter-spacing: 1.5px;
         }
@@ -45,88 +54,178 @@
         ul { list-style: none; }
         
         /* Layout Utility */
-        section { padding: 100px 5%; max-width: 1200px; margin: auto; }
+        section { padding: 100px 5%; max-width: 1200px; margin: auto; position: relative; z-index: 2;}
         .section-subtitle { text-align: center; max-width: 600px; margin: 0 auto 50px auto; color: var(--text-light); font-size: 1.1rem; }
         
         /* --- Glassmorphism Navigation --- */
         nav { 
-            background: rgba(15, 23, 42, 0.95); 
-            backdrop-filter: blur(10px);
-            color: var(--pure-white); 
-            padding: 20px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: fixed; 
-            width: 100%;
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; 
+            position: fixed; width: 100%; top: 0; z-index: 1000; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; }
-        .nav-links { display: flex; gap: 30px; align-items: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--premium-crimson); }
-        .nav-links a.active { color: var(--premium-crimson); font-weight: 600; border-bottom: 2px solid var(--premium-crimson); padding-bottom: 4px; }
-        .member-portal { border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px; border-radius: 4px; }
-        .member-portal:hover { background: var(--pure-white); color: var(--premium-navy); }
+        .nav-header { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo-img { height: 60px; width: auto; transition: transform 0.3s; }
+        .nav-logo-img:hover { transform: scale(1.05); }
+
+        .nav-actions { display: none; } /* Hidden on desktop */
+        .burger-menu { background: none; border: none; font-size: 1.5rem; color: var(--brand-navy); cursor: pointer; display: flex; align-items: center; }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--brand-navy);}
+        .nav-links a:hover { color: var(--brand-red); }
+        .nav-links a.active { color: var(--brand-red); border-bottom: 2px solid var(--brand-red); padding-bottom: 4px; }
+        
+        .btn-nav-proefles { 
+            background: var(--brand-red); color: var(--pure-white) !important; 
+            padding: 10px 24px; border-radius: 30px; 
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); transition: var(--transition-smooth);
+            text-align: center; white-space: nowrap; border-bottom: none !important;
+        }
+        .btn-nav-proefles:hover { background: #b71c1c; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5); }
+        .desktop-only { display: inline-block; }
 
         /* --- Shop Hero Section --- */
         .shop-hero { 
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1920&q=80') center/cover; 
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1920&q=80') center/cover; 
             height: 50vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
+            display: flex; align-items: center; justify-content: center; text-align: center; 
             margin-top: 70px; 
         }
         .shop-hero-content { max-width: 800px; padding: 0 20px; }
         .shop-hero h1 { color: var(--pure-white); font-size: 3.5rem; letter-spacing: 4px; margin-bottom: 15px; }
-        .shop-hero p { color: #cbd5e1; font-size: 1.1rem; font-weight: 300; }
+        .shop-hero p { color: #e2e8f0; font-size: 1.1rem; font-weight: 300; }
 
         /* --- Shopify Container --- */
         .shopify-container {
             background: var(--pure-white);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 60px 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
             min-height: 500px; 
             border: 1px solid rgba(0,0,0,0.02);
         }
 
-        /* --- Refined Footer --- */
-        footer { background-color: var(--premium-navy); color: var(--pure-white); padding: 80px 5% 40px; }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
-        .footer-grid h4 { color: var(--pure-white); margin-bottom: 20px; font-size: 1rem; }
-        .footer-grid p { color: #94a3b8; }
-        .social-icons { display: flex; gap: 20px; }
+        /* --- Footer --- */
+        footer { background-color: var(--brand-navy); color: var(--pure-white); padding: 80px 5% 40px; }
+        .footer-grid { display: grid; gap: 40px; max-width: 1200px; margin: auto; grid-template-columns: 1fr 1fr; }
+        .footer-grid h4 { color: var(--pure-white); margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-grid p { color: #94a3b8; line-height: 1.8; }
+        
+        .footer-connect { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+        
+        .social-icons { display: flex; gap: 20px; margin-top: 20px; }
         .social-icons a { 
             display: flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px; border-radius: 50%; 
+            width: 45px; height: 45px; border-radius: 50%; 
             background: rgba(255,255,255,0.05); color: var(--pure-white); transition: var(--transition-smooth); 
+            font-size: 1.2rem;
         }
-        .social-icons a:hover { background: var(--premium-crimson); transform: translateY(-3px); }
-        .footer-bottom { text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; font-size: 0.8rem; color: #64748b; letter-spacing: 1px; text-transform: uppercase; }
+        .social-icons a:hover { background: var(--brand-red); transform: translateY(-5px); }
+        
+        .footer-bottom { 
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+            margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; 
+            font-size: 0.85rem; color: #64748b; 
+        }
 
-        /* --- PREMIUM SCROLL ANIMATIONS --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        /* --- Legal Links & FYXO --- */
+        .legal-links { display: flex; gap: 20px; }
+        .legal-links a { color: #94a3b8; transition: var(--transition-smooth); cursor: pointer; }
+        .legal-links a:hover { color: var(--pure-white); }
+        
+        .fyxo-container { display: flex; align-items: center; font-size: 0.9rem;}
+        .fyxo-container a { display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; transition: var(--transition-smooth); }
+        .fyxo-container a:hover { color: var(--pure-white); }
+        .fyxo-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--pure-white); }
+
+        /* --- MODAL --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 25, 47, 0.8); backdrop-filter: blur(5px);
+            z-index: 2000; opacity: 0; visibility: hidden;
+            transition: all 0.4s ease; display: flex; justify-content: center; align-items: center;
         }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .modal-content {
+            background: var(--pure-white); border-radius: 12px; width: 90%; max-width: 650px;
+            max-height: 85vh; overflow-y: auto; padding: 50px;
+            transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2); position: relative;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+        
+        .close-modal {
+            position: absolute; top: 25px; right: 25px; background: none; border: none;
+            font-size: 1.5rem; color: var(--text-light); cursor: pointer; transition: color 0.3s;
+        }
+        .close-modal:hover { color: var(--brand-red); }
+        .modal-content h3 { color: var(--brand-navy); margin-bottom: 20px; font-size: 1.5rem; }
+        .modal-content h4 { color: var(--brand-navy); margin-top: 25px; margin-bottom: 10px; font-size: 1rem; font-family: 'Inter', sans-serif; text-transform: none; font-weight: 600; letter-spacing: 0;}
+        .modal-content p { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 991px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .legal-links { flex-direction: column; gap: 10px; text-align: center; }
+            .footer-connect { align-items: center; text-align: center; }
+        }
+
+        @media (max-width: 767px) {
+            nav { flex-direction: column; padding: 10px 5%; align-items: stretch; gap: 0; }
+            .nav-header { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+            .nav-actions { display: flex; align-items: center; gap: 10px; }
+            .nav-logo-img { height: 40px; }
+            
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                width: 100%; 
+                gap: 15px; 
+                padding-top: 15px; 
+                padding-bottom: 5px;
+                border-top: 1px solid rgba(0,0,0,0.05);
+                margin-top: 10px;
+                text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .desktop-only { display: none !important; }
+            
+            .btn-nav-proefles { padding: 8px 14px; font-size: 0.7rem; letter-spacing: 0.5px; }
+            
+            .shop-hero h1 { font-size: 2.5rem; }
+            .footer-grid { text-align: center; }
+            .social-icons { justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+            .modal-content { padding: 30px 20px; }
+        }
+
+        /* --- Scroll Animations --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo-text">JC MIDDELHARNIS</div>
-        <div class="nav-links">
+        <div class="nav-header">
+            <a href="index.html" class="logo-link">
+                <img src="https://www.jcmiddelharnis.nl/wp-content/uploads/2024/05/Logo-Middelharnis_300.png" alt="Judoclub Middelharnis" class="nav-logo-img">
+            </a>
+            <div class="nav-actions">
+                <a href="index.html#contact" class="btn-nav-proefles">Proefles Aanvragen</a>
+                <button class="burger-menu" id="burgerMenu" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html#over-ons">Over ons</a>
             <a href="index.html#locaties">Locaties</a>
             <a href="shop.html" class="active">Webshop</a>
-            <a href="index.html#contact">Contact</a>
-            <a href="#" class="member-portal">Ledenportaal</a>
+            <a href="index.html#contact" class="btn-nav-proefles desktop-only">Proefles Aanvragen</a>
         </div>
     </nav>
 
@@ -268,10 +367,11 @@
     <footer>
         <div class="footer-grid reveal">
             <div>
-                <h4>JUDOCLUB MIDDELHARNIS</h4>
-                <p style="max-width: 400px; font-size: 0.9rem;">Een vereniging gebouwd op discipline, respect en gemeenschap. Ontdek de kunst van het judo op Goeree-Overflakkee.</p>
+                <h4 style="letter-spacing: 2px;">JUDOCLUB MIDDELHARNIS</h4>
+                <p style="max-width: 400px; font-size: 0.95rem;">Een vereniging gebouwd op discipline, respect en gemeenschap. Ontdek de kunst van het judo met plezier op Goeree-Overflakkee.</p>
             </div>
-            <div style="display: flex; flex-direction: column; align-items: flex-end;">
+            
+            <div class="footer-connect">
                 <h4>CONNECT</h4>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/profile.php?id=61558234824233" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
@@ -279,35 +379,119 @@
                 </div>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            &copy; 2026 Judoclub Middelharnis. Alle rechten voorbehouden.
+            <div>&copy; 2026 Judoclub Middelharnis. Alle rechten voorbehouden.</div>
+            
+            <div class="legal-links">
+                <a onclick="openModal('privacyModal')">Privacybeleid</a>
+                <a onclick="openModal('termsModal')">Algemene Voorwaarden</a>
+            </div>
+
+            <div class="fyxo-container">
+                <a href="https://www.fyxo.online/" target="_blank" rel="noopener noreferrer">
+                    Made by <span class="fyxo-logo">FYXO</span>
+                </a>
+            </div>
         </div>
     </footer>
 
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('privacyModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Privacybeleid</h3>
+            <p>Welkom bij Judoclub Middelharnis. Wij hechten veel waarde aan transparantie en de bescherming van jouw persoonsgegevens.</p>
+            
+            <h4>Gegevensverwerking</h4>
+            <p>Wij gebruiken de door jou verstrekte gegevens (via het contactformulier of inschrijving) uitsluitend voor het inplannen van proeflessen, de ledenadministratie, en de afhandeling van eventuele webshop bestellingen.</p>
+            
+            <h4>Beveiliging & Derden</h4>
+            <p>Jouw gegevens worden veilig opgeslagen en nooit verkocht of gedeeld met commerciële derde partijen zonder jouw uitdrukkelijke toestemming. Onze webshop betalingen worden veilig verwerkt via het versleutelde platform van Shopify.</p>
+            
+            <h4>Inzage en Verwijdering</h4>
+            <p>Als lid heb je te allen tijde het recht om jouw persoonsgegevens in te zien, te corrigeren of te laten verwijderen. Neem hiervoor contact met ons op via judoclubmiddelharnis@gmail.com.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="termsModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('termsModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Algemene Voorwaarden (Webshop)</h3>
+            <p>Deze voorwaarden zijn van toepassing op alle aankopen die via de officiële webshop van Judoclub Middelharnis worden gedaan.</p>
+
+            <h4>Bestellingen & Betaling</h4>
+            <p>Alle bestellingen worden verwerkt en financieel afgehandeld via ons veilige Shopify-systeem. Na een succesvolle betaling ontvang je direct een bevestiging per e-mail.</p>
+
+            <h4>Levering & Ophalen</h4>
+            <p>Omdat wij een lokale sportvereniging zijn, worden bestellingen <strong>niet thuisbezorgd</strong>. Je kunt je bestelde artikelen (zoals een judogi, band of tas) tijdens je eerstvolgende reguliere trainingstijd afhalen bij je dojo (De Staver, De Gooye of De Grutterswei). Toon hierbij je bestelbevestiging aan de trainer.</p>
+
+            <h4>Ruilen & Retourneren</h4>
+            <p>Artikelen kunnen binnen 14 dagen na ontvangst worden geretourneerd of geruild voor een andere maat, mits het artikel ongebruikt is, niet gewassen, en zich in de originele verpakking bevindt. Lever het artikel in bij de trainer om het retourproces in gang te zetten.</p>
+        </div>
+    </div>
+
     <script>
+        // --- Burger Menu Logic for Mobile ---
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navLinks = document.getElementById('nav-links');
+        
+        if (burgerMenu) {
+            const burgerIcon = burgerMenu.querySelector('i');
+
+            burgerMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if(navLinks.classList.contains('active')) {
+                    burgerIcon.classList.remove('fa-bars');
+                    burgerIcon.classList.add('fa-xmark');
+                } else {
+                    burgerIcon.classList.remove('fa-xmark');
+                    burgerIcon.classList.add('fa-bars');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    burgerIcon.classList.remove('fa-xmark');
+                    burgerIcon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // --- Smooth Scroll Animations ---
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
-
-            const revealOptions = {
-                threshold: 0.15, 
-                rootMargin: "0px 0px -50px 0px" 
-            };
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    } else {
+                    if (entry.isIntersecting) {
                         entry.target.classList.add('active');
                         observer.unobserve(entry.target); 
                     }
                 });
             }, revealOptions);
 
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
-            });
+            reveals.forEach(reveal => revealOnScroll.observe(reveal));
         });
+
+        // --- Modals ---
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
     </script>
 </body>
 </html>
