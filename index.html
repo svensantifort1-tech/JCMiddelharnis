@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Judoclub Middelharnis | Premium Judo</title>
+    
+    <link rel="icon" type="image/png" href="tied-black-belt.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -104,7 +107,6 @@
 
         /* --- Cinematic Hero Section --- */
         .hero { 
-            /* Updated background to the local hero-bg.jpg file */
             background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.8)), url('hero-bg.jpg') center/cover; 
             background-attachment: fixed; height: 100vh; 
             display: flex; align-items: center; justify-content: center; text-align: center; 
@@ -154,7 +156,6 @@
         .footer-grid h4 { color: var(--pure-white); margin-bottom: 20px; font-size: 1.1rem; }
         .footer-grid p { color: #94a3b8; line-height: 1.8; }
         
-        /* Updated Connect alignment for Desktop */
         .footer-connect { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
         
         .social-icons { display: flex; gap: 20px; margin-top: 20px; }
@@ -178,7 +179,9 @@
         .legal-links a:hover { color: var(--pure-white); }
         
         /* FYXO Footer Logo styling */
-        .fyxo-container { display: flex; align-items: center; gap: 8px; font-size: 0.9rem;}
+        .fyxo-container { display: flex; align-items: center; font-size: 0.9rem;}
+        .fyxo-container a { display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; transition: var(--transition-smooth); }
+        .fyxo-container a:hover { color: var(--pure-white); }
         .fyxo-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--pure-white); }
 
         /* --- MODAL (Privacy & Terms) --- */
@@ -208,15 +211,12 @@
         .modal-content p { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; }
 
         /* --- MEDIA QUERIES (Responsiveness for all devices) --- */
-        
-        /* Desktop: Force exactly 3 columns and 2 columns */
         @media (min-width: 992px) {
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
-        /* Tablet */
         @media (min-width: 768px) and (max-width: 991px) {
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
             .grid-2 { grid-template-columns: 1fr; }
@@ -226,7 +226,6 @@
             .footer-connect { align-items: center; text-align: center; }
         }
 
-        /* Mobile */
         @media (max-width: 767px) {
             nav { flex-direction: column; padding: 15px 5%; gap: 15px; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
@@ -277,12 +276,12 @@
             <p class="section-subtitle reveal">Judoclub Middelharnis is een gezellige en open vereniging. We staan voor recreatief en goed judo in een veilige omgeving.</p>
             
             <div class="grid-3">
-                <div class="card reveal">
+                <div class="card reveal delay-1">
                     <i class="fa-solid fa-medal"></i>
                     <h3>KWALITEIT & TECHNIEK</h3>
                     <p>We streven ernaar om iedere judoka verder te helpen in hun fysieke en mentale ontwikkeling, persoonlijk begeleid door ervaren trainers.</p>
                 </div>
-                <div class="card reveal delay-1">
+                <div class="card reveal delay-2">
                     <i class="fa-solid fa-camera-retro"></i>
                     <h3>MEDIACENTRUM</h3>
                     <p>Bekijk exclusieve beelden van onze recente bandenexamens en toernooien in hoge kwaliteit via ons afgeschermde ledenportaal.</p>
@@ -413,7 +412,9 @@
             </div>
 
             <div class="fyxo-container">
-                Made by <span class="fyxo-logo">FYXO</span>
+                <a href="https://www.fyxo.online/" target="_blank" rel="noopener noreferrer">
+                    Made by <span class="fyxo-logo">FYXO</span>
+                </a>
             </div>
         </div>
     </footer>
@@ -453,7 +454,6 @@
     </div>
 
     <script>
-        // --- Smooth Scroll Animations ---
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
@@ -470,18 +470,16 @@
             reveals.forEach(reveal => revealOnScroll.observe(reveal));
         });
 
-        // --- Modal Control Logic ---
         function openModal(modalId) {
             document.getElementById(modalId).classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevents background scrolling when modal is open
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restores scrolling
+            document.body.style.overflow = 'auto'; 
         }
 
-        // Close modal if user clicks strictly on the dark background overlay
         window.onclick = function(event) {
             if (event.target.classList.contains('modal-overlay')) {
                 event.target.classList.remove('active');
