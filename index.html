@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Judoclub Middelharnis | Premium Judo</title>
     
-    <link rel="icon" type="image/png" href="tied-black-belt.png">
-    <link rel="shortcut icon" href="tied-black-belt.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="tied-black-belt.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="tied-black-belt.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="tied-black-belt.png?v=2">
+    <link rel="apple-touch-icon" href="tied-black-belt.png?v=2">
+    <link rel="shortcut icon" href="tied-black-belt.png?v=2">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,15 +60,11 @@
         .container { max-width: 1200px; margin: auto; }
         .section-subtitle { text-align: center; max-width: 600px; margin: 0 auto 50px auto; color: var(--text-light); font-size: 1.1rem; }
         
-        /* --- Specific Section Backgrounds (Adding Personality) --- */
-        
-        /* The exact plus-pattern from your screenshot */
+        /* --- Specific Section Backgrounds --- */
         .bg-pattern-plus {
             background-color: var(--bg-offwhite);
             background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 9H5v2h4v4h2v-4h4V9h-4V5H9v4z' fill='%23cbd5e1' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
-        
-        /* Deep Navy Section */
         .bg-navy { background-color: var(--brand-navy); color: var(--pure-white); }
         .bg-navy h2 { color: var(--pure-white); }
         .bg-navy .section-subtitle { color: #94a3b8; }
@@ -85,7 +82,7 @@
         .btn-white { background-color: var(--pure-white); color: var(--brand-navy); }
         .btn-white:hover { background-color: #f1f5f9; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
 
-        /* --- Glassmorphism Navigation --- */
+        /* --- UPDATED: Glassmorphism Navigation Structure --- */
         nav { 
             background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -93,19 +90,24 @@
             position: fixed; width: 100%; top: 0; z-index: 1000; 
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
+        .nav-header { display: flex; align-items: center; justify-content: space-between; }
         .nav-logo-img { height: 60px; width: auto; transition: transform 0.3s; }
         .nav-logo-img:hover { transform: scale(1.05); }
-        
+
+        .nav-actions { display: none; } /* Hidden on desktop */
+        .burger-menu { background: none; border: none; font-size: 1.5rem; color: var(--brand-navy); cursor: pointer; display: flex; align-items: center; }
+
         .nav-links { display: flex; gap: 30px; align-items: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--brand-navy);}
         .nav-links a:hover { color: var(--brand-red); }
         
-        /* New Standout Button in Nav */
         .btn-nav-proefles { 
             background: var(--brand-red); color: var(--pure-white) !important; 
             padding: 10px 24px; border-radius: 30px; 
             box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); transition: var(--transition-smooth);
+            text-align: center; white-space: nowrap;
         }
         .btn-nav-proefles:hover { background: #b71c1c; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5); }
+        .desktop-only { display: inline-block; }
 
         /* --- Cinematic Hero Section --- */
         .hero { 
@@ -133,7 +135,7 @@
         .card i { font-size: 2.5rem; color: var(--brand-red); margin-bottom: 25px; display: inline-block; }
         .card p { color: var(--text-light); font-size: 0.95rem; }
 
-        /* --- Webshop Teaser Banner (Vibrant Gradient) --- */
+        /* --- Webshop Teaser Banner --- */
         .shopify-cta {
             background: linear-gradient(135deg, var(--brand-red) 0%, #991b1b 100%);
             color: var(--pure-white); border-radius: 12px; padding: 80px 40px; text-align: center;
@@ -175,18 +177,17 @@
             font-size: 0.85rem; color: #64748b; 
         }
 
-        /* --- Legal Links (Privacy & Terms) --- */
+        /* --- Legal Links & FYXO --- */
         .legal-links { display: flex; gap: 20px; }
         .legal-links a { color: #94a3b8; transition: var(--transition-smooth); cursor: pointer; }
         .legal-links a:hover { color: var(--pure-white); }
         
-        /* FYXO Footer Logo styling */
         .fyxo-container { display: flex; align-items: center; font-size: 0.9rem;}
         .fyxo-container a { display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; transition: var(--transition-smooth); }
         .fyxo-container a:hover { color: var(--pure-white); }
         .fyxo-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--pure-white); }
 
-        /* --- MODAL (Privacy & Terms) --- */
+        /* --- MODAL --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(10, 25, 47, 0.8); backdrop-filter: blur(5px);
@@ -212,7 +213,7 @@
         .modal-content h4 { color: var(--brand-navy); margin-top: 25px; margin-bottom: 10px; font-size: 1rem; font-family: 'Inter', sans-serif; text-transform: none; font-weight: 600; letter-spacing: 0;}
         .modal-content p { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; }
 
-        /* --- MEDIA QUERIES (Responsiveness for all devices) --- */
+        /* --- MEDIA QUERIES (Responsiveness) --- */
         @media (min-width: 992px) {
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
@@ -228,9 +229,34 @@
             .footer-connect { align-items: center; text-align: center; }
         }
 
+        /* --- UPDATED MOBILE BEHAVIOR FOR NAVIGATION --- */
         @media (max-width: 767px) {
-            nav { flex-direction: column; padding: 15px 5%; gap: 15px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            nav { flex-direction: column; padding: 10px 5%; align-items: stretch; gap: 0; }
+            .nav-header { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+            .nav-actions { display: flex; align-items: center; gap: 10px; }
+            .nav-logo-img { height: 40px; }
+            
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                width: 100%; 
+                gap: 15px; 
+                padding-top: 15px; 
+                padding-bottom: 5px;
+                border-top: 1px solid rgba(0,0,0,0.05);
+                margin-top: 10px;
+                text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .desktop-only { display: none !important; }
+            
+            .btn-nav-proefles { 
+                padding: 8px 14px; 
+                font-size: 0.7rem; 
+                letter-spacing: 0.5px;
+            }
+            
+            /* Other Mobile Rules */
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.1rem; }
             section { padding: 60px 5%; }
@@ -253,14 +279,23 @@
 <body>
 
     <nav>
-        <a href="#" class="logo-link">
-            <img src="https://www.jcmiddelharnis.nl/wp-content/uploads/2024/05/Logo-Middelharnis_300.png" alt="Judoclub Middelharnis" class="nav-logo-img">
-        </a>
-        <div class="nav-links">
+        <div class="nav-header">
+            <a href="#" class="logo-link">
+                <img src="https://www.jcmiddelharnis.nl/wp-content/uploads/2024/05/Logo-Middelharnis_300.png" alt="Judoclub Middelharnis" class="nav-logo-img">
+            </a>
+            <div class="nav-actions">
+                <a href="#contact" class="btn-nav-proefles">Proefles Aanvragen</a>
+                <button class="burger-menu" id="burgerMenu" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-links" id="nav-links">
             <a href="#over-ons">Over ons</a>
             <a href="#locaties">Locaties</a>
             <a href="shop.html">Webshop</a>
-            <a href="#contact" class="btn-nav-proefles">Proefles Aanvragen</a>
+            <a href="#contact" class="btn-nav-proefles desktop-only">Proefles Aanvragen</a>
         </div>
     </nav>
 
@@ -286,7 +321,7 @@
                 <div class="card reveal delay-2">
                     <i class="fa-solid fa-camera-retro"></i>
                     <h3>MEDIACENTRUM</h3>
-                    <p>Bekijk media van onze lessen via social media.</p>
+                    <p>Neem een kijkje in onze dojo! Via onze officiële social media kanalen delen wij regelmatig sfeerimpressies, actievideo's van de wekelijkse lessen, en trotse momenten van onze judoka's. Volg ons en blijf verbonden met de club.</p>
                 </div>
                 <div class="card reveal delay-2">
                     <i class="fa-regular fa-calendar-check"></i>
@@ -456,6 +491,35 @@
     </div>
 
     <script>
+        // --- Added Burger Menu Logic for Mobile ---
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navLinks = document.getElementById('nav-links');
+        
+        if (burgerMenu) {
+            const burgerIcon = burgerMenu.querySelector('i');
+
+            burgerMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if(navLinks.classList.contains('active')) {
+                    burgerIcon.classList.remove('fa-bars');
+                    burgerIcon.classList.add('fa-xmark');
+                } else {
+                    burgerIcon.classList.remove('fa-xmark');
+                    burgerIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    burgerIcon.classList.remove('fa-xmark');
+                    burgerIcon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // --- Smooth Scroll Animations ---
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
